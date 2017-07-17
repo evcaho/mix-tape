@@ -1,0 +1,24 @@
+<h1> Mixtapes! </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Songs</th>
+  </tr>
+
+  <% @tapes.each do |tape| %>
+    <tr>
+      <td><%= tape.name %></td>
+      <td>
+      	  <% tape.songs.each do |song| %>
+            <ul>
+              <li> <%= song.title %> </li>
+            </ul>
+          <% end %>
+      </td>
+  	</tr>
+<% end %>
+</table>
+
+
+
