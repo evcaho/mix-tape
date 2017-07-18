@@ -1,7 +1,15 @@
-<form>
-	Tape title: <br>
-	<input type="text", name="name"><br>
-	Song:<br>
-	<input type="text", name="title">
-	<input type="text", name="artist">
-</form>
+<%= form_for @tape do |tape_form| %>
+  <p>
+	Tape name: <%= tape_form.text_field :name %>
+  </p>
+	<%= tape_form.fields_for :songs do |song_form| %>
+	  <p>
+	  	<%= song_form.label :title, "Song Title" %>
+	  	<%= song_form.text_field :title %>
+	  	<%= song_form.label :artist, "Artist" %>
+	  	<%= song_form.text_field :artist %>
+	  </p>
+
+	<% end %>
+	<%= tape_form.submit "Create tape" %>
+<% end %>
