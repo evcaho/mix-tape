@@ -11,8 +11,10 @@
 
 
 <h2>Add a song:</h2>
-<!-- Example split danger button -->
+<h3>Existing songs:</h3>
+<%= options_from_collection_for_select(Song.all, :id, :title) %>
 
+<h3>Add a new song</h3>
 <%= form_for @song do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
