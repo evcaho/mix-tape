@@ -15,7 +15,7 @@ class TapesController < ApplicationController
   def create
   	@tape = Tape.new(tape_params)
   	if @tape.save
-  		render 'show'
+  		redirect_to @tape
   	else
   		render 'new'
   	end

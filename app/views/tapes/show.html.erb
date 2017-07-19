@@ -1,24 +1,26 @@
 <h2><%= @tape.name %></h2>
 <h3> Songs: </h3>
+<ul>
   <% @tape.songs.each do |song| %>
-    <ul>
-      <li> <%= song.title %>, <%= song.artist %></li>
-    </ul>
+    <% if song.persisted? %>
+        <li> <%= song.title %>, <%= song.artist %></li>
+    <% end %>
   <% end %>
+</ul>
 
 
 
 <h2>Add a song:</h2>
+<!-- Example split danger button -->
+
 <%= form_for @song do |f| %>
-    <li>
-       <%= f.label :title %>
-      	<%= f.text_field :title %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-      	<%= f.label :artist %>
-      	<%= f.text_field :artist %>
+   <%= f.label :artist %>
+   <%= f.text_field :artist %>
 
-      	<%= f.hidden_field :tape_id, value: @tape.id %>
-      	<%= f.submit %>
-    </li>
+   <%= f.hidden_field :tape_id, value: @tape.id %>
+   <%= f.submit %>
 <% end %>
 
