@@ -1,3 +1,4 @@
+
 class SongsController < ApplicationController
   def index
   	@songs = Song.all
@@ -8,7 +9,6 @@ class SongsController < ApplicationController
   end
 
   def create
-  	puts song_params
   	@song = Song.new(song_params)
   	@tape = Tape.find(params[:song][:tape_id])
   	if @song.save
@@ -16,6 +16,17 @@ class SongsController < ApplicationController
   		redirect_to tape_path(@tape)
   	else
   		render 'new'
+  	end
+  end
+
+  def add
+  	@song = Song.find(params[:id])
+  	@tape = Tape.find(params[:song][:tape_id])
+  	if @song.save
+  		@tape.songs << @song
+  		redirect_to tape_path(@tape)
+  	else
+  		redirect_to tape_path(@tape)
   	end
   end
 

@@ -2,6 +2,7 @@ class TapesController < ApplicationController
   def show
   	@tape = Tape.find(params[:id])
     @song = @tape.songs.build
+    @membership = @tape.memberships.build
   end
 
   def index

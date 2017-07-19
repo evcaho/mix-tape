@@ -12,8 +12,14 @@
 
 <h2>Add a song:</h2>
 <h3>Existing songs:</h3>
+<%= form_for @membership do |f| %>
+<select>
+	<%= options_from_collection_for_select(Song.all, :id, :title) %>
+	<%= f.hidden_field :tape_id, value: @tape.id %>
+  <%= f.submit %>
+  </select>
+<% end %>
 
-<select><%= options_from_collection_for_select(Song.all, :id, :title) %></select>
 
 <h3>Add a new song</h3>
 <%= form_for @song do |f| %>
