@@ -19,17 +19,6 @@ class SongsController < ApplicationController
   	end
   end
 
-  def add
-  	@song = Song.find(params[:id])
-  	@tape = Tape.find(params[:song][:tape_id])
-  	if @song.save
-  		@tape.songs << @song
-  		redirect_to tape_path(@tape)
-  	else
-  		redirect_to tape_path(@tape)
-  	end
-  end
-
   private
     def song_params
     	params.require(:song).permit(:title, :artist)
