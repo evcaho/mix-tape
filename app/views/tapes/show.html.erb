@@ -13,7 +13,7 @@
 <h2>Add a song:</h2>
 <h3>Existing songs:</h3>
 <%= form_for @membership do |f| %>
-	<%= select_tag(:song_id, options_from_collection_for_select(Song.all, :id, :title)) %>
+  <%= f.select(:song_id, options_from_collection_for_select(Song.all, :id, :title)) %>
   <%= f.hidden_field :tape_id, value: @tape.id %>
 <%= f.submit %>
 <% end %>

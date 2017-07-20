@@ -5,18 +5,16 @@ class MembershipsController < ApplicationController
 
 	def create
 	  @membership = Membership.new(membership_params)
-	  @tape = @membership.tapes.build
+	  @tape = Tape.find(params[:membership][:tape_id])
   	  if @membership.save
-  	  	raise "saved"
   	    redirect_to tape_path(@tape)
   	  else
-  	  	raise @membership.inspect
   	    redirect_to tape_path(@tape)
   	  end
     end
 
   def membership_params
-    params.require(:membership).permit(songs_attributes: [:id], tapes_attributes: [:id])
+    params.require(:membership).permit(:song_id, :tape_id)
   end
 
 end

@@ -22,6 +22,15 @@ class TapesController < ApplicationController
   	end
   end
 
+  def update
+    @tape = Tape.find(params[:id])
+    if @tape.save
+      redirect_to @tape
+    else
+      render 'new'
+    end
+  end
+
   private
     def tape_params
     	params.require(:tape).permit(:name, songs_attributes: [:id, :title, :artist])

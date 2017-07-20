@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class MembershipsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+	def setup
+		@membership = Membership.new(membership_params)
+	end
+
+	
 end

@@ -9,7 +9,7 @@ class SongsController < ApplicationController
   end
 
   def create
-  	@song = Song.new(song_params)
+  	@song.id = Song.new(song_params)
   	@tape = Tape.find(params[:song][:tape_id])
   	if @song.save
   		@tape.songs << @song
