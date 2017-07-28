@@ -31,6 +31,15 @@ class TapesController < ApplicationController
     end
   end
 
+  def destroy
+    @tape = Tape.find(params[:id])
+    @tape.destroy
+    respond_to do |format|
+      format.html { redirect_to tapes_url, notice: 'Tape was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def tape_params
     	params.require(:tape).permit(:name, songs_attributes: [:id, :title, :artist])
