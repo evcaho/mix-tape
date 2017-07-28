@@ -9,13 +9,22 @@ class SongsController < ApplicationController
   end
 
   def create
-  	@song.id = Song.new(song_params)
+  	@song = Song.new(song_params)
   	@tape = Tape.find(params[:song][:tape_id])
   	if @song.save
   		@tape.songs << @song
   		redirect_to tape_path(@tape)
   	else
   		render 'new'
+  	end
+  end
+
+  def destroy
+  	@song = Song.find(params[:id])
+  	@song.destroy
+  	respond_to do |format|
+      format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
+      format.json { head :no_content }
   	end
   end
 

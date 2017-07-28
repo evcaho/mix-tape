@@ -8,7 +8,7 @@
 
   <% @tapes.each do |tape| %>
     <tr>
-      <td><%= tape.name %></td>
+      <td><%= link_to tape.name, tape %></td>
       <td>
       	  <% tape.songs.each do |song| %>
             <ul>
@@ -16,7 +16,6 @@
             </ul>
           <% end %>
       </td>
-      <td><%= link_to 'Edit', tape %></td>
       <td><%= link_to 'Destroy', tape, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
   	</tr>
 <% end %>
