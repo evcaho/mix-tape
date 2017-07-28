@@ -1,0 +1,9 @@
+<h2><%= @song.title %><%= @song.artist %></h2>
+<h3> Associations: </h3>
+<ul>
+  <% @song.tapes.each do |tape| %>
+    <% if tape.persisted? %>
+        <li> <%= tape.name%></li>
+    <% end %>
+  <% end %>
+</ul>

@@ -12,7 +12,7 @@
       <td>
       	  <% song.tapes.each do |tape| %>
             <ul>
-              <li> <%= tape.name %> </li>
+              <li> <%= link_to tape.name, tape %> </li>
             </ul>
           <% end %>
       </td>

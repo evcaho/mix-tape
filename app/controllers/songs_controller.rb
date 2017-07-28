@@ -4,6 +4,12 @@ class SongsController < ApplicationController
   	@songs = Song.all
   end
 
+  def show
+  	@song = Song.find(params[:id])
+    @tape = @song.tapes.build
+    @membership = @song.memberships.build
+  end
+
   def new
   	@song = Song.new
   end
