@@ -4,9 +4,9 @@
   <% @tape.songs.each do |song| %>
     <% if song.persisted? %>
         <li> 
-        	<%= song.title %>, <%= song.artist %> <%= @membership %> 
-        	<%= link_to 'Remove', @membership, method: :delete, data: { confirm: 'Remove?' } %>
-        	<%= link_to 'Destroy', membership_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        	<%= song.title %>, <%= song.artist %> <%= t = @tape.id %> <%= m_destroy = song.memberships.where(tape_id: t).ids %>
+        	<%= link_to 'Destroy', membership_path(m_destroy), method: :delete, data: { confirm: 'Are you sure?' } %>
+        	<%= t %>
 
         	
         	

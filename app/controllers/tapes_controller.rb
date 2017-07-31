@@ -31,6 +31,9 @@ class TapesController < ApplicationController
     end
   end
 
+  def find_membership
+  end
+
   def destroy
     @tape = Tape.find(params[:id])
     @tape.destroy

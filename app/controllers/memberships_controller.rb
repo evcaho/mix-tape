@@ -4,6 +4,7 @@ class MembershipsController < ApplicationController
 	end
 
   def show
+    @membershu
   end
 
 	def create
@@ -18,12 +19,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
-    @tape = Tape.find(params[:membership][:tape_id])
     @membership.destroy
-    respond_to do |format|
-      format.html { redirect_to tape_url }
-      format.json { head :no_content }
-    end
   end
 
   def membership_params
