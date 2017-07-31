@@ -19,7 +19,9 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
+    @tape = @membership.tape_id
     @membership.destroy
+    redirect_to tape_path(@tape)
   end
 
   def membership_params
