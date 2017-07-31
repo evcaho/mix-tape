@@ -1,4 +1,4 @@
-<h1> Mixtapes! </h1>
+<h1> Songs </h1>
 
 <table>
   <tr>
@@ -8,7 +8,7 @@
 
   <% @songs.each do |song| %>
     <tr>
-      <td><%= song.title %>,<%= song.artist %></td>
+      <td><%= link_to song.title, song %>,<%= song.artist %></td>
       <td>
       	  <% song.tapes.each do |tape| %>
             <ul>
@@ -16,7 +16,7 @@
             </ul>
           <% end %>
       </td>
-      <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+      <td><%= link_to 'Destroy Song', song, method: :delete, data: { confirm: 'Are you sure you want to destroy this song?' } %> </td>
   	</tr>
 <% end %>
 </table>

@@ -3,7 +3,7 @@
 <ul>
   <% @song.tapes.each do |tape| %>
     <% if tape.persisted? %>
-        <li> <%= tape.name%></li>
+        <li> <%= tape.name%> Destroy Association</li>
     <% end %>
   <% end %>
 </ul>

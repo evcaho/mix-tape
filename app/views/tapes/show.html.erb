@@ -3,7 +3,15 @@
 <ul>
   <% @tape.songs.each do |song| %>
     <% if song.persisted? %>
-        <li> <%= song.title %>, <%= song.artist %></li>
+        <li> 
+        	<%= song.title %>, <%= song.artist %> <%= @membership %> 
+        	<%= link_to 'Remove', @membership, method: :delete, data: { confirm: 'Remove?' } %>
+        	<%= link_to 'Destroy', membership_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        	
+        	
+        </li>
+
     <% end %>
   <% end %>
 </ul>
