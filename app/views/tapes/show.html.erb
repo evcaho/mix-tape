@@ -5,12 +5,8 @@
     <% if song.persisted? %>
         <li> 
         	<%= song.title %>, <%= song.artist %>
-        	<%= link_to 'Destroy', membership_path(song.memberships.where(tape_id: @tape.id).ids), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-        	
-        	
-        </li>
+        	<%= link_to 'Remove', membership_path(song.memberships.where(tape_id: @tape.id).ids), method: :delete, data: { confirm: 'Are you sure?' } %>
+		</li>
 
     <% end %>
   <% end %>
@@ -37,3 +33,4 @@
    <%= f.submit %>
 <% end %>
 
+<%= link_to "Back", tapes_path %>
