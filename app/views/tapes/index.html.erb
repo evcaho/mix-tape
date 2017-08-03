@@ -2,26 +2,39 @@
 
 <h2><%= link_to "Create new tape", new_tape_path %></h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Songs</th>
-  </tr>
+
+<div class="row">
+  <div class="col-md-4">
+    Name
+  </div>
+  <div class="col-md-4">
+    Songs
+  </div>
+  <div class="col-md-4">
+    Destroy?
+  </div>
+</div>
+
 
   <% @tapes.each do |tape| %>
-    <tr>
-      <td><%= link_to tape.name, tape %></td>
-      <td>
-      	  <% tape.songs.each do |song| %>
-            <ul>
-              <li> <%= song.title %>, <%= song.artist %> </li>
-            </ul>
-          <% end %>
-      </td>
-      <td><%= link_to 'Destroy', tape, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
-  	</tr>
-<% end %>
-</table>
+    <div class="row">
+      <div class="col-md-4">
+      <%= link_to tape.name, tape %>
+      </div>
+      <div class="col-md-4">
+      <% tape.songs.each do |song| %>
+        <ul>
+          <li> <%= song.title %>, <%= song.artist %> </li>
+        </ul>
+      <% end %>
+      </div>
+    <div class="col-md-4">
+      <%= link_to 'Destroy', tape, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <% end %>
+
+
 
 
 
